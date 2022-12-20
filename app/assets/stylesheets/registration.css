@@ -1,0 +1,39 @@
+#registration_form{display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index: 20;}
+#registration_form:target {
+  opacity: 1; /* делаем окно видимым */
+  pointer-events: auto; /* элемент видим для событий мыши */
+  overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+#registration_form_2{display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index:20;}
+.form_line {
+  padding: 15px;
+  background-color: black;
+  color: white;
+  margin-bottom: 15px;
+  height: 50px;
+}
+
+/* Крестик */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 36px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.closebtn:hover {
+  color: antiquewhite;
+}
+.form_wrapper{position: fixed; 
+  display:block;
+  width:100%;
+  height:100%;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,.7);
+  z-index:10;display: none}

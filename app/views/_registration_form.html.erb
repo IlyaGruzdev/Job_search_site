@@ -1,0 +1,39 @@
+<div class="form_wrapper">
+<div id='registration_form' role="dialog" >
+<%=form_with url: users_path do |f|%>
+<div class="form_line">
+  <span class="closebtn" onclick="document.getElementById('registration_form').style='display: none';document.querySelector('.form_wrapper').style='display: none'">&times;</span> 
+</div>
+<div class="row mb-3">
+<%=f.label :name, for: "inputPassword4", class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.text_field :name, placeholder: 'username', class: "form-control form-control-lg"%>
+</div>
+</div>
+<div class="row mb-3">
+<%=f.label :email, for: "inputEmail4", class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.email_field :email,type: 'email', class: "form-control form-control-lg", id: "inputEmail4", placeholder: 'email'%>
+</div>
+</div>
+<div class="row mb-3">
+<%=f.label :password, for: "inputPassword4", class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.text_field :password, type: 'password', class: "form-control form-control-lg", id: "inputPassword4"%>
+</div>
+</div>
+<div class="row mb-3">
+<%=f.label :password_confirmation, for: "inputPassword4", class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.text_field :password_confirmation, type: 'password', class: "form-control form-control-lg", id: "inputPassword4"%>
+</div>
+</div>
+<%=f.submit "Зарегистрироваться", class: "btn btn-primary btn-lg"%>
+<%end%>
+<%if flash.now()[:warning]%>
+<div class="alert alert-danger alert_form" role="alert">
+ <%= flash.now()[:warning]%>
+ </div>
+ <%end%>
+</div>
+</div>

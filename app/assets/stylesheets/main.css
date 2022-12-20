@@ -1,0 +1,50 @@
+#main_body{}
+body{background-image: url("assets/fon.jpg"); height: 100%}
+.navbar-expand-lg{width:100%;height: 70px;position: fixed;  /* Фиксированное позиционирование */
+  left: 0; right: 0; /* Вся ширина */
+  top: 0; /* Положение сверху */
+  padding:20px;z-index: 2;}
+
+#main_title{width: 90%; margin: auto;margin-left:0px;margin-top:70px;background-image: url("assets/main_title.webp"); height: 50pc;}
+
+
+#title_element{min-width: 600px;background-color: rgba(0, 0, 0, 0.850);display:flex;width: 60%;margin: auto;color:white; height: max-content;}
+
+#title_cont{font-weight:600;font-size: 30px;padding: 30px;}
+
+
+#title_btn{width: 300px;height: 60px}
+#title_cont_btn{margin:auto;padding: 30px;}
+.third:hover {
+  box-shadow: 0 0 10px 0 #3498db inset, 0 0 10px 4px #3498db;
+}
+.third {
+  border-color:black;
+  border-radius: 3pc;
+  box-shadow: 0 0 40px 40px #4234db inset, 0 0 0 0 hwb(0 20% 14%);
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  font-size: 22px;
+}
+#div{display: block;}
+#main_head{padding: 2cm;margin:auto;font-weight:700;width: 40%; text-align: center;background-color: rgba(255, 255, 255, 0.674);margin-bottom: 0px;font-size: 40px;font-family: 'Yeseva One';color:black;min-width:400px}
+.sidebar {
+  height: 100%;
+  margin-left: 90%;
+  margin-top: 70px;
+  width: 10%;
+position: fixed;
+  padding-top: 60px;
+  background-color:rgba(0, 0, 0, 0.300)
+  }
+  .sidebar div {
+ 
+  padding: 8px;
+  font-size: 24px;
+  display: block;
+  }
+  #new_form{margin-top: 70px;}
+
+.main_panel_block{display: flex;}
+.alert_body{margin-top: 70px;position: absolute;z-index: 1;width: 100%;height: max-content;}
+.alert_form{margin-top: 25px}

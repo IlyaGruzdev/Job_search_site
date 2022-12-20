@@ -1,0 +1,8 @@
+
+<%=form_with model: @user do |f|%>
+
+<%=f.label :name%>
+<%=f.text_field :name, placeholder :username%>
+<%=f.text_field :surname, placeholder :usersurname%>
+<%=f.text_field :email, placeholder :email%>
+<%=f.text_field :password, placeholder :password%>

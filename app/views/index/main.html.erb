@@ -1,0 +1,65 @@
+<%=render '/title'%>
+<%=render '/registration_form'%>
+<%=render '/login_form'%>
+
+<%if flash[:success] %>
+<div class='alert alert-success alert_body' role="alert"><%=flash[:success]%></div>
+<%end%>
+ <%if flash.notice == "Incorrect email and/or password"%>
+ <script> showform(document.getElementById('registration_form_2')) </script>
+ <%elsif flash[:warning].present?%>
+  <script> showform(document.getElementById('registration_form')) </script>
+  <%end%>
+ 
+<div class="main_panel_block">
+<div class="sidebar">
+<div>Menu Item 1</div>
+<div>Menu Item 2</div>
+<div>Menu Item 3</div>
+</div>
+<div id='main_title'>
+<div id='main_head'>
+Много дел, но мало времени?</br>
+Закажи у нас работу!
+</div>
+<div id='title_element'>
+<div id='title_cont'>
+У нас только надежные</br>
+и проверенные исполнители заказов
+</div>
+<div id='title_cont_btn'>
+<button class="third btn btn-primary" type="button" id='title_btn'>Заказать услугу</button>
+</div>
+
+</div>
+
+ </div>
+
+</div>
+
+<div>
+</div>
+</br>
+    </br>
+    </br>
+     </br>
+    </br>
+    </br>
+     </br>
+    </br>
+    </br>
+     </br>
+    </br>
+    </br>
+     </br>
+    </br>
+    </br>
+</div>
+<input list="browsers">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Google Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist> 
