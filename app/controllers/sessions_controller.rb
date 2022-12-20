@@ -18,7 +18,7 @@ def create
   end
 end
 def destroy
-  sign_out
-  redirect_to root_path, notice: "Вы вышли из аккаунта"
+  log_out
+  redirect_to root_path
 end
 end

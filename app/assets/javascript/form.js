@@ -24,3 +24,7 @@ function showform(elem)
   elem.style.top=(document.documentElement.clientHeight - elem.clientHeight)/2+"px"
   
 }
+function exit_click()
+{
+  bootbox.alert('This is the default alert!');
+}

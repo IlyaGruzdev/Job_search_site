@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     session[:user_id] = user.id
   end
+  
+  def log_out
+    session.delete(:user_id)
+  end
   helper_method :current_user, :user_signed_in?
 end

@@ -14,13 +14,16 @@
           <%=link_to 'Выполнить задание', root_path,  class: "nav-link active"%>
         </li>
       </ul>
+      
       <%if user_signed_in?%>
-
- <%=link_to "Hello, #{current_user.name}!", root_path, class: " nav-link"%>
-<%end%>
+     
+  <%=link_to "Hello, #{current_user.name}!",'', class: "nav-link dropdown-toggle"%>
+  <%=button_to "Выйти", sessions_url,method: :delete, class: "nav-link", onclick: "exit_click()"  %>
+ 
+<%else%>
       <%=link_to 'Войти','#', class: "btn btn-primary btn-group-toggle ", onclick: "regclick( document.getElementById('registration_form_2'))" %>
        <%=link_to 'Регистрация', '#', class: "btn btn-group-toggle btn-outline-success",  onclick: "regclick( document.getElementById('registration_form'))" %>
-     
+   <%end%>  
     </div>
   </div>
 </nav>
