@@ -5,7 +5,7 @@ def new
 end
 
   def create
-   @task=@user.tasks.build task_params
+   @task = @user.tasks.build task_params
     if (@task.save)
       flash[:success] = "Successfully created"
       redirect_to new_user_task_path(current_user)

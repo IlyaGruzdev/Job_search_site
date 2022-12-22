@@ -1,10 +1,9 @@
 class SessionsController < ApplicationController
 def create
-  render plain: params.to_yaml and return
   user = User.find_by(email: params[:email])
   if user&.authenticate(params[:password])
    sign_in(user)
-   remember @user if params[:remember_me] == "1"
+   remember user if (params[:remember_me] == "1")
     flash[:success]="Hello #{user.name}!"
    redirect_to root_path
   else

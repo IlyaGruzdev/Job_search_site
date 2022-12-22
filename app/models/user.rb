@@ -15,7 +15,11 @@ class User < ApplicationRecord
   end
 
   def remember_token_authenticated?(remember_token)
+    return false unless remember_token_digest.present?
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
+  end
+  def forget_me
+    update_column :remember_token_digest, nil
   end
  private
  def digest(string)
