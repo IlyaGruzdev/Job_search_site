@@ -1,4 +1,4 @@
-<%=render '/title'%>
+<%currently_at 'Main'%>
 <%=render '/registration_form'%>
 <%=render '/login_form'%>
 
@@ -7,7 +7,7 @@
 <%end%>
  <%if flash.notice == "Incorrect email and/or password"%>
  <script> showform(document.getElementById('registration_form_2')) </script>
- <%elsif flash[:warning].present?%>
+ <%elsif flash.notice=="Error params"%>
   <script> showform(document.getElementById('registration_form')) </script>
   <%end%>
  

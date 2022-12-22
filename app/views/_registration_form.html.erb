@@ -30,10 +30,19 @@
 </div>
 <%=f.submit "Зарегистрироваться", class: "btn btn-primary btn-lg"%>
 <%end%>
-<%if flash.now()[:warning]%>
+<%if flash.notice=="Error params"%>
 <div class="alert alert-danger alert_form" role="alert">
- <%= flash.now()[:warning]%>
+ <%unless @user.nil?%>
+<ul>
+    <% @user.errors.full_messages.each do |m| %>
+    <li><%=m%></li>
+    <%end%>
+</ul>
+<%else%>
+<%=flash.notice%>
+<%end%>
  </div>
+ 
  <%end%>
 </div>
 </div>
