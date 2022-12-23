@@ -1,0 +1,22 @@
+<%currently_at t('main.home')%>
+<%=render '/registration_form'%>
+<%=render '/login_form'%>
+
+<%if flash[:success] %>
+<div class='alert alert-success alert_body' role="alert"><%=flash[:success]%></div>
+<%end%>
+ <%if flash.notice == "Incorrect email and/or password"%>
+ <script> showform(document.getElementById('registration_form_2')) </script>
+ <%elsif flash.notice=="Error params"%>
+  <script> showform(document.getElementById('registration_form')) </script>
+  <%end%>
+<div id="tasks_show_body">
+<%@tasks.each do |task|%>
+<div class="tasks_show_conteiner">
+<h2>User name: <%=task.user.name%></h2>
+<h2>Title: <%=task.title%></h2>
+<h3>Body: <%=task.body%></h3>
+<%=link_to "Откликнуться", new_user_task_responce_path(task.user_id, task.id),class: "btn btn-primary btn-lg"%>
+</div>
+<%end%>
+</div>

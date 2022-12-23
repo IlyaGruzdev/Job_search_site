@@ -3,7 +3,9 @@ class TasksController < ApplicationController
 def new
 
 end
-
+def show
+  @tasks=Task.all
+end
   def create
    @task = @user.tasks.build task_params
     if (@task.save)

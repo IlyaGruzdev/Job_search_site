@@ -5,7 +5,7 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
   top: 0; /* Положение сверху */
   padding:20px;z-index: 2;}
 
-#main_title{width: 90%; margin: auto;margin-left:0px;margin-top:70px;background-image: url("assets/main_title.webp"); height: 50pc;}
+#main_title{width: 85%;top: 70px;right: auto;bottom:auto;left: 0px;background-image: url("assets/main_title.webp"); height: 50pc;position: relative;}
 
 
 #title_element{min-width: 600px;background-color: rgba(0, 0, 0, 0.850);display:flex;width: 60%;margin: auto;color:white; height: max-content;}
@@ -30,15 +30,17 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
 #main_head{padding: 2cm;margin:auto;font-weight:700;width: 40%; text-align: center;background-color: rgba(255, 255, 255, 0.674);margin-bottom: 0px;font-size: 40px;font-family: 'Yeseva One';color:black;min-width:400px}
 .sidebar {
   height: 100%;
-  margin-left: 90%;
-  margin-top: 70px;
-  width: 10%;
+  margin-left: 85%;
+  top: 0px;
+  margin-top: 0px;
 position: fixed;
-  padding-top: 60px;
-  background-color:rgba(0, 0, 0, 0.300)
+  padding-top: 70px;
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0.300);
+  z-index: 10;
   }
   .sidebar div {
- 
+ text-align: center;
   padding: 8px;
   font-size: 24px;
   display: block;
@@ -46,5 +48,5 @@ position: fixed;
   #new_form{margin-top: 70px;}
 
 .main_panel_block{display: flex;}
-.alert_body{margin-top: 70px;position: absolute;z-index: 1;width: 100%;height: max-content;}
+.alert_body{top: 70px;position:absolute;z-index: 1;width: 100%;height: max-content;}
 .alert_form{margin-top: 25px}

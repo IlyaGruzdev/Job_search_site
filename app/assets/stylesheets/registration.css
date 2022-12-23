@@ -1,10 +1,10 @@
-#registration_form{display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index: 20;}
+#registration_form{border-radius: 1em;display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index: 20;}
 #registration_form:target {
   opacity: 1; /* делаем окно видимым */
   pointer-events: auto; /* элемент видим для событий мыши */
   overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
 }
-#registration_form_2{display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index:20;}
+#registration_form_2{border-radius: 1em;display:none;width: max-content;height:max-content;background-color: antiquewhite;position: absolute;margin-left: auto;margin-right: auto;top: 0; left: 0; bottom: 0; right: 0;padding: 25px;z-index:20;}
 .form_line {
   padding: 15px;
   background-color: black;

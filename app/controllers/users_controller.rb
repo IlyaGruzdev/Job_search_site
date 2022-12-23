@@ -12,6 +12,7 @@ before_action :set_user, only: %i[edit update destroy]
       redirect_to root_path
     else 
       flash.now().notice = "Error params"
+      @responces=Responce.all
       render 'index/main'
     end
   end

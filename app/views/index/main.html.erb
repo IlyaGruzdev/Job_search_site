@@ -11,16 +11,28 @@
   <script> showform(document.getElementById('registration_form')) </script>
   <%end%>
  
-<div class="main_panel_block">
 <div class="sidebar">
-<div>Menu Item 1</div>
-<div>Menu Item 2</div>
-<div>Menu Item 3</div>
+<%if user_signed_in?%>
+<%if @tasks.empty?%>
+<div>Нет созданных заданий</div>
+<%elsif @responces.empty?%>
+<div>Нет созданных вопросов</div>
+<%else%>
+<div><h2>Отклики</h2></div>
+<%@responces.each do |responce|%>
+<div class="main_panel_block">
+<%=responce.user.name%> готов приступить к работе
+<%=responce.body%>
+</div>
+<%end%>
+<%end%>
+<%end%>
+
 </div>
 <div id='main_title'>
 <div id='main_head'>
 Много дел, но мало времени?</br>
-Закажи у нас работу!
+Закажи работу у нас!
 </div>
 <div id='title_element'>
 <div id='title_cont'>
@@ -55,11 +67,4 @@
     </br>
     </br>
 </div>
-<input list="browsers">
-<datalist id="browsers">
-  <option value="Internet Explorer">
-  <option value="Firefox">
-  <option value="Google Chrome">
-  <option value="Opera">
-  <option value="Safari">
-</datalist> 
+

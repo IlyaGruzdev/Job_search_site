@@ -1,0 +1,37 @@
+
+
+<%=provide :page_title, @user.name+"Responce"%>
+<%currently_at%>
+<div class="edit_form">
+<%=form_with url: user_task_responces_path do |f|%>
+<div class="row mb-3">
+<%=f.label :title, for: "inputPassword4",class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.text_field :title, placeholder: 'username',placeholder: "Title of your favour", class: "form-control form-control-lg"%>
+</div>
+</div>
+<div class="row mb-3">
+<%=f.label :body, for: "inputEmail4", class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%=f.text_area :body,placeholder: "Write your favour", class: "form-control form-control-lg"%>
+</div>
+</div>
+<%=f.submit "Откликнуться", class: "btn btn-primary btn-lg"%>
+<%end%>
+<%if flash[:success]%>
+<div class="alert alert-success">
+<%=flash[:success]%>
+</div>
+<%end%>
+<%if flash[:warning]%>
+<div class="alert alert-danger alert_form" role="alert">
+ <h2><%=flash[:warning]%></h2>
+ <%unless @responce.nil?%>
+<ul>
+    <% @responce.errors.full_messages.each do |m| %>
+    <li><%=m%></li>
+    <%end%>
+</ul>
+<%end%>
+ </div>
+ <%end%>

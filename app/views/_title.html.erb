@@ -11,14 +11,14 @@
       <%if user_signed_in?%>
         <li class="nav-item">
           <%=link_to 'Заказать задание', new_user_task_path(current_user),  class: "nav-link active"%>
-        </li>
-        <%else%>
+        </li>    
+        <%else%> 
         <li class="nav-item">
-          <%=link_to 'Заказать задание', root_path,  class: "nav-link active", data: {confirm: "Please login or register"}%>
+          <%=link_to 'Заказать задание', root_path,  class: "nav-link active",data:{ confirm: "Please login or register"}%>
         </li>
-         <%end%>
+        <%end%>
         <li class="nav-item">
-          <%=link_to 'Выполнить задание', root_path,  class: "nav-link active",data:{ confirm: "Please login or register"}%>
+          <%=link_to 'Список заданий', tasks_show_path,  class: "nav-link active"%>
         </li>
        
       </ul>

@@ -1,6 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :old_password, :remember_token
   has_many :tasks
+  has_many :responces
+  attr_accessor :old_password, :remember_token
+  
   has_secure_password validations: false
   validates :email, presence: true, uniqueness: true , 'valid_email_2/email': true
   validates :name, presence: true
