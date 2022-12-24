@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_user, only: %i[new create]
+  before_action :set_task, only: %i[destroy]
 def new
 
 end
@@ -17,8 +18,18 @@ end
     end
   end
 
+    def edit
+      @task=Task.find params[:id]
 
-
+    end
+    def destroy
+      task=current_user.tasks.find params[:id]
+      @task.destroy
+      redirect_to edit_user_path(current_user)
+    end
+def set_task
+  @task=Task.find params[:id]
+end
  def set_user
     @user=User.find params[:user_id]
  end

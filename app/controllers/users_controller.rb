@@ -21,10 +21,10 @@ before_action :set_user, only: %i[edit update destroy]
 
   def edit
 
-    @task=@user.tasks
   end 
 
   def update
+    
     if (@user.update user_params)
       flash[:success] = "Successfuly updated!"
       redirect_to edit_user_url     
@@ -41,6 +41,6 @@ before_action :set_user, only: %i[edit update destroy]
     @user=User.find params[:id]
   end
   def user_params
-    params.permit(:name, :email, :password, :password_confirmation, :old_password)
+    params.permit(:name, :email, :password, :password_confirmation, :old_password, :avatar)
   end
 end

@@ -26,6 +26,7 @@
       <%if user_signed_in?%>
      
   <%=link_to "Hello, #{current_user.name}!",edit_user_path(current_user), class: "nav-link dropdown-toggle"%>
+   <%= image_tag(current_user.avatar.url, class: "nav-link navbar-left avatar",  size: "100x100") if current_user.avatar? %> 
   <%=link_to "Выйти", sessions_path(current_user),data: {method: :delete, confirm: "Are your sure?"}, class: "nav-link", onclick: "exit_click()"  %>
  
 <%else%>
@@ -35,6 +36,7 @@
     </div>
   </div>
 </nav>
+
 
 
 

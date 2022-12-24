@@ -1,9 +1,10 @@
-#main_body{}
+
 body{background-image: url("assets/fon.jpg"); height: 100%}
+.main_body{background-color: white;position: absolute;height: 100%;width: 100%;}
 .navbar-expand-lg{width:100%;height: 70px;position: fixed;  /* Фиксированное позиционирование */
   left: 0; right: 0; /* Вся ширина */
   top: 0; /* Положение сверху */
-  padding:20px;z-index: 2;}
+  padding:20px;z-index: 20;}
 
 #main_title{width: 85%;top: 70px;right: auto;bottom:auto;left: 0px;background-image: url("assets/main_title.webp"); height: 50pc;position: relative;}
 
@@ -28,17 +29,21 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
 }
 #div{display: block;}
 #main_head{padding: 2cm;margin:auto;font-weight:700;width: 40%; text-align: center;background-color: rgba(255, 255, 255, 0.674);margin-bottom: 0px;font-size: 40px;font-family: 'Yeseva One';color:black;min-width:400px}
-.sidebar {
-  height: 100%;
-  margin-left: 85%;
+#sidebar_cont{display:flex; height: 100%;
+  margin-left: 80%;
+  width: 20%;
   top: 0px;
-  margin-top: 0px;
-position: fixed;
-  padding-top: 70px;
+  position: fixed;
+  
+  background-image: url("assets/fon.jpg");
+  z-index: 5;}
+.sidebar {
+  padding-top: 100px;
   text-align: center;
-  background-color:rgba(0, 0, 0, 0.300);
   z-index: 10;
   }
+  #sidebar_border{background-color:rgba(0, 0, 0, 0.300);
+    width: 30px;height: 100%; z-index: 10;top:0px;position: fixed;}
   .sidebar div {
  text-align: center;
   padding: 8px;
@@ -47,6 +52,6 @@ position: fixed;
   }
   #new_form{margin-top: 70px;}
 
-.main_panel_block{display: flex;}
+.main_panel_block{}
 .alert_body{top: 70px;position:absolute;z-index: 1;width: 100%;height: max-content;}
 .alert_form{margin-top: 25px}

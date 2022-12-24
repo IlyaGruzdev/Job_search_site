@@ -1,11 +1,25 @@
 <%=provide :page_title, @user.name%>
 <%currently_at%>
-<div class="edit_form">
-<%=form_with model: @users, metod: :patch do |f|%>
+<div class="row edit_form">
+<div class="col-6">
+<div class="cont_edit_avatar">
+About Autor
+<div class="avatar_content">
+<%= image_tag(current_user.avatar.url, class: "edit_avatar") %> 
+<div>
+Profile of
+<hr></hr>
+<%=@user.name%>
+</div>
+</div>
+</div>
+</div>
+<div class="col-6">
+<%=form_with model: @users, metod: :patch, html: {multipart: true} do |f|%>
 <div class="row mb-3">
-<%=f.label :name, for: "inputPassword4",class: "form-label col-form-label"%>
+<%=f.label :name, for: "inputEmail4", class: "form-label col-form-label"%>
 <div class="col-sm-10">
-<%=f.text_field :name, placeholder: 'username',value: @user.name, class: "form-control form-control-lg"%>
+<%=f.text_field :name,value: @user.name, class: "form-control form-control-lg",  placeholder: 'name'%>
 </div>
 </div>
 <div class="row mb-3">
@@ -32,8 +46,15 @@
 <%=f.text_field :password_confirmation, type: 'password', class: "form-control form-control-lg", id: "inputPassword4"%>
 </div>
 </div>
+<div class="row mb-3">
+<%=f.label :avatar, class: "form-label col-form-label"%>
+<div class="col-sm-10">
+<%= f.file_field :avatar, class: "form-control form-control-lg"%>
+</div>
+</div>
 <%=f.submit "Изменить", class: "btn btn-primary btn-lg"%>
 <%end%>
+</div>
 <%if flash[:success]%>
 <div class="alert alert-success">
 <%=flash[:success]%>
@@ -47,5 +68,26 @@
     <li><%=m%></li>
     <%end%>
 </ul>
+ </div>
+ <%end%>
+ <%unless @user.tasks.empty?%>
+ <div id="user_tasks">
+ <%@user.tasks.each_with_index do |task, index|%>
+ <div id="user_task_cont">
+ <div id="user_task_cont_title">
+ <%=task.title%>
+ </div>
+ <div id="user_task_cont_body">
+ <h3>Category: <%=task.category%></h3>
+ <%=task.body%>
+ </div>
+ </div>
+<div id="user_tasks_button">
+ <%=link_to "Отклики", edit_user_task_path(@user.id, task.id), class: "btn btn-secondary btn-lg", id: "user_tasks_button"%>
+ <%=link_to "Удалить", task_path(task), data: {method: :delete, confirm: "Do your want delete task?"}, class: "btn btn-danger btn-lg", id: "user_tasks_button"%>
+ </div>
+ <div id="edit-container" > 
+ </div>
+ <%end%>
  </div>
  <%end%>

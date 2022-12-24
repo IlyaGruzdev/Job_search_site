@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_092529) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_24_023841) do
   create_table "responces", force: :cascade do |t|
     t.string "title"
     t.string "body"
@@ -20,15 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_092529) do
     t.integer "task_id", null: false
     t.index ["task_id"], name: "index_responces_on_task_id"
     t.index ["user_id"], name: "index_responces_on_user_id"
-  end
-
-  create_table "responses", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
-    t.integer "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -48,11 +39,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_092529) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_token_digest"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "responces", "tasks"
   add_foreign_key "responces", "users"
-  add_foreign_key "responses", "users"
   add_foreign_key "tasks", "users"
 end

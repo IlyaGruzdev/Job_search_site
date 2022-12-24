@@ -1,4 +1,6 @@
+<div class="main_body">
 <%currently_at t('main.home')%>
+
 <%=render '/registration_form'%>
 <%=render '/login_form'%>
 
@@ -10,15 +12,22 @@
  <%elsif flash.notice=="Error params"%>
   <script> showform(document.getElementById('registration_form')) </script>
   <%end%>
- 
+ <div id="sidebar_cont">
+ <div id="sidebar_border">
+</div>
 <div class="sidebar">
+
 <%if user_signed_in?%>
+
 <%if @tasks.empty?%>
-<div>Нет созданных заданий</div>
+
+<div class="slidebar">Нет созданных заданий</div>
 <%elsif @responces.empty?%>
-<div>Нет созданных вопросов</div>
+<div class="main_panel_block">
+Нет откликов
+</div>
 <%else%>
-<div><h2>Отклики</h2></div>
+<h2>Отклики</h2>
 <%@responces.each do |responce|%>
 <div class="main_panel_block">
 <%=responce.user.name%> готов приступить к работе
@@ -27,7 +36,7 @@
 <%end%>
 <%end%>
 <%end%>
-
+</div>
 </div>
 <div id='main_title'>
 <div id='main_head'>
@@ -66,5 +75,6 @@
      </br>
     </br>
     </br>
+</div>
 </div>
 

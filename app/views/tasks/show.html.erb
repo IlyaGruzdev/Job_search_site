@@ -14,9 +14,10 @@
 <%@tasks.each do |task|%>
 <div class="tasks_show_conteiner">
 <h2>User name: <%=task.user.name%></h2>
+<h2>Category: <%=task.category%></h2>
 <h2>Title: <%=task.title%></h2>
-<h3>Body: <%=task.body%></h3>
-<%=link_to "Откликнуться", new_user_task_responce_path(task.user_id, task.id),class: "btn btn-primary btn-lg"%>
+<%=link_to "Откликнуться", new_user_task_responce_path(task.user.id,task.id),class: "btn btn-primary btn-lg"%>
+<%=link_to "Показать", edit_task_path(task.id),class: "btn btn-primary btn-lg"%>
 </div>
 <%end%>
 </div>

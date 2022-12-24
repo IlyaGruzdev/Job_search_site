@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :tasks
   has_many :responces
+  mount_uploader :avatar, AvatarUploader
+  
   attr_accessor :old_password, :remember_token
   
   has_secure_password validations: false
