@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Pagy::Backend
 rescue_from ActiveRecord::RecordNotFound, with: :notfound
 private
+
 def notfound()
   render file: 'public/404.html', status: :not_found, layaut: false
 end 

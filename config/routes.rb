@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   resource :sessions, only: %i[create destroy]
   
   get 'tasks/show',to: 'tasks#show'
+  post 'tasks/search',to: 'tasks#search'
+  post 'tasks/show',to: 'tasks#show'
   post 'users/:id/edit', to: 'users#update'
   post 'users/:id', to: 'users#update'
+  post '/', to: 'index#main'
   root 'index#main'
 end

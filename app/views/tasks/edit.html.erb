@@ -1,6 +1,56 @@
 <%currently_at t('main.home')%>
-<div class="row", id="task_edit">
-<%=@task.category%>
-<%=@task.title%>
-<%=@task.body%>
+
+
+<div id="tasks_show_body">
+<div class="row px-2">
+<div class="col-6">
+
+<h2>Category: <%=@task.category%></h2>
+<%if @task.category=="Дизайн"%>
+  <%=image_tag("/assets/design.jpg", size: "550x450") %>
+  <%elsif @task.category=="Курьерские услуги"%>
+  <%=image_tag("/assets/deliver.jpg", size: "550x450") %>
+  <%elsif @task.category=="Ремонт"%>
+  <%=image_tag("/assets/building.jpg", size: "550x450") %>
+  <%elsif @task.category=="Финансовый советник"%>
+  <%=image_tag("/assets/finance.jpg", size: "550x450") %>
+  <%elsif @task.category=="Уборка"%>
+  <%=image_tag("/assets/clean.jpg", size: "550x450") %>
+  <%elsif @task.category=="It"%>
+  <%=image_tag("/assets/it.jpg", size: "550x450") %>
+  <%elsif @task.category=="Репетиторы"%>
+  <%=image_tag("/assets/repetitors.png", size: "550x450") %>
+  <%else%>
+  <%=image_tag("/assets/another.jpg", size: "550x450") %>
+  <%end%>
+</div>
+<div class="col-6 edit_task_text">
+ <% if @task.user.avatar?%>
+  <%= image_tag(@task.user.avatar.url, class: "avatarbig") %> 
+   <%else%>
+<%= image_tag("assets/avatar.jpg", class: "avatarbig") %> 
+   <%end%>
+   <table class="table table-striped">
+   <tr>
+   <th scope="col"><h2>Task: </h2></th>
+      <th scope="col"><h2><%=@task.title%></h2></th>
+   </tr>
+   <tr>
+   <th scope="col"><h2>User name: </h2></th>
+      <th scope="col"><h2><%=@task.user.name%></h2></th>
+   </tr>
+    <tr>
+   <th scope="col"><h2>Cost: </h2></th>
+      <th scope="col"><h2><%=@task.cost%> руб</h2></th>
+   </tr>
+   </table>
+<h2>Body: </h2></br>
+<div class="row mb-2 bg-gradient-warning" id="task_body_text" >
+<%=@task.body %>
+</div>
+<div class="row">
+<%=link_to "Откликнуться", new_user_task_responce_path(@task.user.id,@task.id),class: "btn btn-primary btn-lg"%>
+ </div>  
+
+</div>
 </div>

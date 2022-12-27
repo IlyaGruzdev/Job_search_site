@@ -3,8 +3,7 @@ before_action :require_authentication, only: %i[edit update]
 before_action :require_no_authentication, only: %i[destroy]
 before_action :set_user, only: %i[edit update destroy]
 
-
-  def create
+  def create 
     @user=User.new user_params
     if (@user.save)
       flash[:success] = "Welcome to the site #{@user.name}"
@@ -32,13 +31,16 @@ before_action :set_user, only: %i[edit update destroy]
       @task=current_user.tasks
       flash.now[:warning] = "Error parametrs!"
       render :edit   
-    end
   end
+end
   def destroy
 
   end
   def set_user
     @user=User.find params[:id]
+  end
+  def set_avatar
+   
   end
   def user_params
     params.permit(:name, :email, :password, :password_confirmation, :old_password, :avatar)

@@ -5,5 +5,6 @@ class IndexController < ApplicationController
     @tasks=current_user.tasks
     @user=current_user
     end
+   
   end
 end

@@ -5,7 +5,11 @@
 <div class="cont_edit_avatar">
 About Autor
 <div class="avatar_content">
+<% if current_user.avatar?%>
 <%= image_tag(current_user.avatar.url, class: "edit_avatar") %> 
+   <%else%>
+ <%= image_tag("/assets/avatar.jpg", class: "edit_avatar") %>
+   <%end%>
 <div>
 Profile of
 <hr></hr>
@@ -50,10 +54,15 @@ Profile of
 <%=f.label :avatar, class: "form-label col-form-label"%>
 <div class="col-sm-10">
 <%= f.file_field :avatar, class: "form-control form-control-lg"%>
+<%= f.hidden_field :avatar_cache %>
 </div>
 </div>
+
+<div class="col-sm-10">
 <%=f.submit "Изменить", class: "btn btn-primary btn-lg"%>
+</div>
 <%end%>
+
 </div>
 <%if flash[:success]%>
 <div class="alert alert-success">
@@ -70,6 +79,7 @@ Profile of
 </ul>
  </div>
  <%end%>
+ 
  <%unless @user.tasks.empty?%>
  <div id="user_tasks">
  <%@user.tasks.each_with_index do |task, index|%>

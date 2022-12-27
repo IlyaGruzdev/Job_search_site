@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_023841) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_004141) do
   create_table "responces", force: :cascade do |t|
     t.string "title"
     t.string "body"
@@ -29,6 +29,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_023841) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "cost", default: 1000
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
@@ -39,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_023841) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "remember_token_digest"
-    t.string "avatar"
+    t.string "avatar", default: "avatar.jpg"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

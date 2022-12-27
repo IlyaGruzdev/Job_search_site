@@ -2,22 +2,69 @@
 <%=render '/registration_form'%>
 <%=render '/login_form'%>
 
-<%if flash[:success] %>
-<div class='alert alert-success alert_body' role="alert"><%=flash[:success]%></div>
-<%end%>
+
+<div id="tasks_show_body">
+
+
+<form id="search-field" action=<%=tasks_show_path%> metod="post">
+  <input type="checkbox" id="show-search-field" />
+  <label for="show-search-field"><span>Найти</span></label>
+  <span>
+    <input name="value" type="text" placeholder="Найти..." />
+   <button type="submit" form="search-field">  &nbsp;</button>
+  </span>
+</form>
  <%if flash.notice == "Incorrect email and/or password"%>
  <script> showform(document.getElementById('registration_form_2')) </script>
  <%elsif flash.notice=="Error params"%>
   <script> showform(document.getElementById('registration_form')) </script>
   <%end%>
-<div id="tasks_show_body">
-<%@tasks.each do |task|%>
-<div class="tasks_show_conteiner">
-<h2>User name: <%=task.user.name%></h2>
-<h2>Category: <%=task.category%></h2>
-<h2>Title: <%=task.title%></h2>
-<%=link_to "Откликнуться", new_user_task_responce_path(task.user.id,task.id),class: "btn btn-primary btn-lg"%>
-<%=link_to "Показать", edit_task_path(task.id),class: "btn btn-primary btn-lg"%>
+  <%if flash[:warning]%>
+  <div class='alert alert-warning alert_body'>
+  <%=flash[:warning]%>
+  </div>
+  <%end%>
+  <%if flash[:found] %>
+<div class='alert alert-success alert_body' role="alert">
+<%=flash[:found]%>
 </div>
 <%end%>
+ </div>
+
+
+<div id="tasks_show_body">
+<%unless @buf_task.nil?%>
+<%@buf_task.each do |task|%>
+<div class="tasks_show_conteiner row bg-light">
+<div class="col-6">
+<%if task.category=="Дизайн"%>
+  <%=image_tag("/assets/design.jpg", size: "450x350") %>
+  <%elsif task.category=="Курьерские услуги"%>
+  <%=image_tag("/assets/deliver.jpg", size: "450x350") %>
+  <%elsif task.category=="Ремонт"%>
+  <%=image_tag("/assets/building.jpg", size: "450x350") %>
+  <%elsif task.category=="Финансовый советник"%>
+  <%=image_tag("/assets/finance.jpg", size: "450x350") %>
+  <%elsif task.category=="Уборка"%>
+  <%=image_tag("/assets/clean.jpg", size: "450x350") %>
+  <%elsif task.category=="It"%>
+  <%=image_tag("/assets/it.jpg", size: "450x350") %>
+  <%elsif task.category=="Репетиторы"%>
+  <%=image_tag("/assets/repetitors.png", size: "450x350") %>
+  <%else%>
+  <%=image_tag("/assets/another.jpg", size: "450x350") %>
+  <%end%>
 </div>
+<div class="col-4 bg-info">
+<h2>Title: <%=task.title%></h2>
+<h2>Category: <%=task.category%></h2>
+<h2>User name: <%=task.user.name%></h2>
+<h2>Cost: <%=task.cost%></h2>
+<%=link_to "Откликнуться", new_user_task_responce_path(task.user.id,task.id),class: "btn btn-primary btn-lg"%>
+<%=link_to "Показать", edit_task_path(task.id),class: "btn btn-secondary btn-lg"%>
+</div>
+</div>
+<%end%>
+<%end%>
+</div>
+

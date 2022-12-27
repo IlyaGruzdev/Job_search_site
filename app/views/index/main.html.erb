@@ -1,4 +1,4 @@
-<div class="main_body">
+<div class="main_body row">
 <%currently_at t('main.home')%>
 
 <%=render '/registration_form'%>
@@ -15,17 +15,12 @@
  <div id="sidebar_cont">
  <div id="sidebar_border">
 </div>
-<div class="sidebar">
+<div class="sidbar">
 
 <%if user_signed_in?%>
 
 <%if @tasks.empty?%>
-
-<div class="slidebar">Нет созданных заданий</div>
 <%elsif @responces.empty?%>
-<div class="main_panel_block">
-Нет откликов
-</div>
 <%else%>
 <h2>Отклики</h2>
 <%@responces.each do |responce|%>
@@ -46,11 +41,17 @@
 <div id='title_element'>
 <div id='title_cont'>
 У нас только надежные</br>
-и проверенные исполнители заказов
+и проверенные исполнители заказов 
 </div>
-<div id='title_cont_btn'>
-<button class="third btn btn-primary" type="button" id='title_btn'>Заказать услугу</button>
+<%unless user_signed_in?%>
+<div id="title_cont_btn" >
+<%=button_to "Заказать услугу", '#', class: "third", id: "title_btn", data: { confirm: "Пожалуйста, авторизуйтесь"}%>
 </div>
+<%else%>
+<div id="title_cont_btn" >
+<%=link_to "Заказать услугу", edit_user_path(current_user), class: "btn btn-secondary third", id: "title_btn"%>
+</div>
+<%end%>
 
 </div>
 
@@ -60,21 +61,93 @@
 
 <div>
 </div>
-</br>
-    </br>
-    </br>
-     </br>
-    </br>
-    </br>
-     </br>
-    </br>
-    </br>
-     </br>
-    </br>
-    </br>
-     </br>
-    </br>
-    </br>
+
+    </div>
+</div>
+
+
+
+<footer id="footer" class="footer-1 row">
+<div class="main-footer widgets-dark typo-light">
+<div class="container">
+<div class="row">
+   
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget subscribe no-box">
+<h5 class="widget-title">COMPANY NAME<span></span></h5>
+<p>About the company, little discription will goes here.. </p>
 </div>
 </div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget no-box">
+<h5 class="widget-title">Quick Links<span></span></h5>
+<ul class="thumbnail-widget">
+<li>
+<div class="thumb-content"><a href="#.">Get Started</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Top Leaders</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Success Orders</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Event/Tickets</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">News</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">Lifestyle</a></div>  
+</li>
+<li>
+<div class="thumb-content"><a href="#.">About</a></div>  
+</li>
+</ul>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+<div class="widget no-box">
+<h5 class="widget-title">Get Started<span></span></h5>
+<p>Get access to your full Training and Marketing Suite.</p>
+<%unless user_signed_in?%>
+<button class="newbtn btn"  target="_blank" onclick="regclick(document.getElementById('registration_form'))">Register Now</button>
+<%else%>
+<button class="newbtn btn"  target="_blank" onclick="alert('Вы уже зарегистрированы!')">Register Now</button>
+<%end%>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-3">
+
+<div class="widget no-box">
+<h5 class="widget-title">Contact Us<span></span></h5>
+
+<p><a href="mailto:info@domain.com" title="glorythemes">ilyagruzdev172@mail.ru</a></p>
+<ul class="social-footer2">
+<li class=""><a title="Youtube" target="_blank" href="/"><img alt="youtube" width="30" height="30" src="data:image/png;base64,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"></a></li>
+<li class=""><a href="/" target="_blank" title="Facebook"><img alt="Facebook" width="30" height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Facebook_F_icon.svg/640px-Facebook_F_icon.svg.png"></a></li>
+<li class=""><a href="/" target="_blank" title="Twitter"><img alt="Twitter" width="30" height="30" src="http://store-images.s-microsoft.com/image/apps.50484.9007199266244427.4d45042b-d7a5-4a83-be66-97779553b24d.2c71c1ea-c28f-4dd1-b72d-c43cdd3476f4"></a></li>
+<li class=""><a title="Instagram" target="_blank" href="https://vk.com/feed"><img alt="Vk" width="30" height="30" src="https://free-png.ru/wp-content/uploads/2022/02/free-png.ru-306-340x340.png"></a></li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+   
+<div class="footer-copyright">
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<p>Copyright Company Name © 2016. All rights reserved.</p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
 
