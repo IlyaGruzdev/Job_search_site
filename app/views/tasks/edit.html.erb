@@ -6,23 +6,7 @@
 <div class="col-6">
 
 <h2>Category: <%=@task.category%></h2>
-<%if @task.category=="Дизайн"%>
-  <%=image_tag("/assets/design.jpg", size: "550x450") %>
-  <%elsif @task.category=="Курьерские услуги"%>
-  <%=image_tag("/assets/deliver.jpg", size: "550x450") %>
-  <%elsif @task.category=="Ремонт"%>
-  <%=image_tag("/assets/building.jpg", size: "550x450") %>
-  <%elsif @task.category=="Финансовый советник"%>
-  <%=image_tag("/assets/finance.jpg", size: "550x450") %>
-  <%elsif @task.category=="Уборка"%>
-  <%=image_tag("/assets/clean.jpg", size: "550x450") %>
-  <%elsif @task.category=="It"%>
-  <%=image_tag("/assets/it.jpg", size: "550x450") %>
-  <%elsif @task.category=="Репетиторы"%>
-  <%=image_tag("/assets/repetitors.png", size: "550x450") %>
-  <%else%>
-  <%=image_tag("/assets/another.jpg", size: "550x450") %>
-  <%end%>
+<%=image_tag category_img_url(@task), size: "400x400"%>
 </div>
 <div class="col-6 edit_task_text">
  <% if @task.user.avatar?%>

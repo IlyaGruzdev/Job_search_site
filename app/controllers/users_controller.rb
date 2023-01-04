@@ -1,7 +1,7 @@
 class UsersController < ApplicationController 
 before_action :require_authentication, only: %i[edit update]
 before_action :require_no_authentication, only: %i[destroy]
-before_action :set_user, only: %i[edit update destroy]
+before_action :set_user, only: %i[edit update destroy show]
 
   def create 
     @user=User.new user_params

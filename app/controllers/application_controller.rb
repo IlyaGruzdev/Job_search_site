@@ -51,5 +51,26 @@ end
     cookies.encrypted.permanent[:remember_token] = user.remember_token
     cookies.encrypted.permanent[:user_id] = user.id
   end
-  helper_method :current_user, :user_signed_in?
+
+  def category_img_url(task)
+    if task.category=="Дизайн" 
+      return "/assets/design.jpg"
+      elsif task.category=="Курьерские услуги"
+      return "/assets/deliver.jpg"
+      elsif task.category=="Ремонт"
+      return "/assets/building.jpg" 
+      elsif task.category=="Финансовый советник"
+      return "/assets/finance.jpg"
+      elsif task.category=="Уборка"
+      return "/assets/clean.jpg"
+      elsif task.category=="It"
+        return "/assets/it.jpg"
+      elsif task.category=="Репетиторы"
+        return "/assets/repetitors.png"
+      else
+        return "/assets/another.jpg"
+      end
+
+  end
+  helper_method :current_user, :user_signed_in?, :category_img_url
 end

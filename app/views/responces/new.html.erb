@@ -3,6 +3,15 @@
 <%=provide :page_title, @user.name+"Responce"%>
 
 <%currently_at%>
+ <%unless @responce.nil?%>
+<div class="alert alert-danger alert_body">
+<ul>
+    <% @responce.errors.full_messages.each do |m| %>
+    <li><%=m%></li>
+    <%end%>
+</ul>
+</div>
+<%end%>
 <div class="edit_form">
 <%=form_with url: user_task_responces_path do |f|%>
 <div class="row mb-3">

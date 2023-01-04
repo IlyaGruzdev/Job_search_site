@@ -76,7 +76,9 @@ group :development do
 end
 gem 'pagy', '~> 5.0'
 group :test do
-
+gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'shoulda-matchers'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"

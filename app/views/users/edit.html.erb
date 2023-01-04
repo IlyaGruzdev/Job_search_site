@@ -93,7 +93,6 @@ Profile of
  </div>
  </div>
 <div id="user_tasks_button">
- <%=link_to "Отклики", edit_user_task_path(@user.id, task.id), class: "btn btn-secondary btn-lg", id: "user_tasks_button"%>
  <%=link_to "Удалить", task_path(task), data: {method: :delete, confirm: "Do your want delete task?"}, class: "btn btn-danger btn-lg", id: "user_tasks_button"%>
  </div>
  <div id="edit-container" > 

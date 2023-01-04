@@ -11,8 +11,8 @@
 <div class="alert alert-danger my-20">
 <%unless @task.nil?%>
 <ul>
-    <% @task.errors.full_messages.each do |m| %>
-    <li><%=m%></li>
+    <% @task.errors.full_messages.each_with_index do |m, index| %>
+    <li id="task <%=index+1%>"><%=m%></li>
     <%end%>
 </ul>
 <%else%>
@@ -55,11 +55,11 @@
     <div class="invalid-feedback">Example invalid select feedback</div>
   </div>
 <div class="col-sm-10 mt-4">
-<%=f.submit "Создать", class: "btn btn-primary btn-lg"%>
+<%=f.submit "Создать", class: "btn btn-primary btn-lg", id: "task_create_btn"%>
 
 </div>
 <%end%>
 
  
 
-<!-- Twitter -->
+

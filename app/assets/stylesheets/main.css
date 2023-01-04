@@ -6,7 +6,7 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
   top: 0; /* Положение сверху */
   padding:20px;z-index: 20;}
 
-#main_title{width: 85%;top: 70px;bottom:auto;left: 0px;background-image: url("assets/main_title.webp"); height: 55pc;position: relative;}
+#main_title{width: 100%;top: 70px;bottom:auto;left: 0px;background-image: url("assets/main_title.webp"); height: 55pc;position: relative;}
 
 
 #title_element{min-width: 600px;background-color: rgba(0, 0, 0, 0.850);display:flex;width: 60%;margin: auto;color:white; height: max-content;position: relative;}
@@ -27,11 +27,13 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
   transition: all 150ms ease-in-out;
   font-size: 22px;
 }
+#sidebar_btn{margin: auto;position: absolute;top: 0%;right: 0%;bottom: 0%;left: 0%;height: 90px;}
 #div{display: block;}
 #main_head{padding: 2cm;margin:auto;font-weight:700;width: 40%; text-align: center;background-color: rgba(255, 255, 255, 0.674);margin-bottom: 0px;font-size: 40px;font-family: 'Yeseva One';color:black;min-width:400px}
 #sidebar_cont{display:grid; height: 100%;
   margin-left: 0px;
-  width: 20%;
+  width: 0%;
+
   position: fixed;
   top: 0px;
  
@@ -58,7 +60,8 @@ body{background-image: url("assets/fon.jpg"); height: 100%}
 .main_panel_block{}
 .alert_body{top: 70px;position:absolute;z-index: 1;width: 100%;height: max-content;}
 .alert_form{margin-top: 25px}
-footer .main-footer{ padding: 20px 0; background: #252525;position: absolute;width: 85%;z-index: 1;}
+#main-footer{ padding: 20px 0; background: #252525;position: absolute;width: 100%;z-index: 1;}
+footer{ padding: 20px 0; background: #252525;position: absolute;width: 100%;z-index: 1;}
 footer ul{ padding-left: 0; list-style: none;}
 
 /* Copy Right Footer */

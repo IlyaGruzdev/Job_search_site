@@ -5,7 +5,7 @@
 <%=render '/login_form'%>
 
 <%if flash[:success] %>
-<div class='alert alert-success alert_body' role="alert"><%=flash[:success]%></div>
+<div class='alert alert-success alert_body' role="alert" id="registration_alert"><%=flash[:success]%></div>
 <%end%>
  <%if flash.notice == "Incorrect email and/or password"%>
  <script> showform(document.getElementById('registration_form_2')) </script>
@@ -13,21 +13,33 @@
   <script> showform(document.getElementById('registration_form')) </script>
   <%end%>
  <div id="sidebar_cont">
+
  <div id="sidebar_border">
+  <button id="sidebar_btn" onmousedown="move(event)"></button>
 </div>
 <div class="sidbar">
 
 <%if user_signed_in?%>
 
-<%if @tasks.empty?%>
-<%elsif @responces.empty?%>
-<%else%>
+
+<%unless @tasks.empty?%>
 <h2>Отклики</h2>
-<%@responces.each do |responce|%>
-<div class="main_panel_block">
-<%=responce.user.name%> готов приступить к работе
-<%=responce.body%>
+<%@tasks.each do |task|%>
+<%unless task.responces.empty?%>
+<div class="main_panel_block row mt-5">
+<div class="col-2">
+
 </div>
+<div class="col-8">
+<%=task.title%>
+<%=image_tag category_img_url(task), size: "120x100"%> 
+<%=task.body%>
+</div>
+<div class="col-2">
+
+</div>
+</div>
+<%end%>
 <%end%>
 <%end%>
 <%end%>
@@ -49,7 +61,7 @@
 </div>
 <%else%>
 <div id="title_cont_btn" >
-<%=link_to "Заказать услугу", edit_user_path(current_user), class: "btn btn-secondary third", id: "title_btn"%>
+<%=link_to "Заказать услугу",  new_user_task_path(current_user), class: "btn btn-secondary third", id: "title_btn"%>
 </div>
 <%end%>
 
@@ -68,7 +80,7 @@
 
 
 <footer id="footer" class="footer-1 row">
-<div class="main-footer widgets-dark typo-light">
+<div id="main-footer" class=" widgets-dark typo-light">
 <div class="container">
 <div class="row">
    

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :users do
     resources :tasks do 
-      resources :responces, only: %i[new create]
+      resources :responces, only: %i[new create edit]
     end
   end
   resources :tasks, only: %i[edit]

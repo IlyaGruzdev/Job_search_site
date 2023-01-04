@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :tasks
   has_many :responces
   mount_uploader :avatar, AvatarUploader
@@ -6,8 +7,8 @@ class User < ApplicationRecord
   attr_accessor :old_password, :remember_token
   
   has_secure_password validations: false
-  validates :email, presence: true, uniqueness: true , 'valid_email_2/email': true
-  validates :name, presence: true
+  validates :email, uniqueness: true , 'valid_email_2/email': true
+  validates :name, :email, :password, presence: { message: 'не может быть пустым' } 
   validate :password_presence
   validate :correct_old_password, on: :update
   validates :password, confirmation: true, allow_blank: true, length: {minimum: 5, maximum: 50}

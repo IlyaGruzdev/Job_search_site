@@ -1,0 +1,47 @@
+<%=render '/title'%>
+<div class="user_task_responces" id="user_task_responces">
+
+<%@user.tasks.each do |task|%>
+<div class="row user_task_responces_row">
+<h2><%=task.title%></h2>
+<h3> Категория <%=task.category%></h3>
+<%=image_tag category_img_url(task)%>
+<div><%=task.body%></div>
+<%unless task.responces.empty?%>
+<h2 class="mt-4">Отклики</h2>
+<%task.responces.each do  |responce|%>
+<div class="col-10 edit_task_text mt-4">
+
+   <table class="table table-striped">
+   <tr>
+   <th scope="col">Title</th>
+      <th scope="col"><h2><%=responce.title%></h2></th>
+   </tr>
+   <tr>
+   <th scope="col"><h2>Body: </h2></th>
+      <th scope="col"><h2><%=responce.body%></h2></th>
+   </tr>
+   </table>
+ 
+</div>
+<div class="col-2 mt-5">
+<%=responce.user.name%>
+<% if responce.user.avatar?%>
+<%=image_tag responce.user.avatar_url, class: "avatar"%>
+<%else%>
+<%=image_tag '/assets/avatar.jpg', class: "avatar"%>
+<%end%>
+</div>
+</div>
+<%end%>
+<%else%>
+<div class="no_responce_img">
+<div class="row">
+<%=image_tag '/assets/no_responces.webp' %>
+</div>
+Нет откликов
+</div>
+<%end%>
+<%end%>
+
+</div>
